@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area</title>
+    <script>
+      function calculateArea()
+      {
+        var txtRadius = document.getElementById("txtRadius")
+        var radius = parseFloat(txtRadius.value)
+        console.log(radius)
+        var area = 3.14 * radius * radius
+        //alert(area)
+        var result = document.getElementById("result")
+        result.innerText = area 
+      }
+
+    </script>
+</head>
+<body>
+    <h2>Area Calculation</h2>
+    Radius <input type="number"
+                  id="txtRadius" />
+    <p></p>
+    <button onClick="calculateArea()">Area</button>
+    <p></p>
+    <h2 style="color:blue" id="result"></h2>
+    
+</body>
+</html>
