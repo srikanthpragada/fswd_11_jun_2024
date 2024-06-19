@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount</title>
+  <script>
+    function calculateDiscount() {
+      var txtPrice = document.getElementById("txtPrice")
+      var price = parseInt(txtPrice.value)
+      var week = parseInt(document.getElementById("weekday").value)
+      var rate = 0;
+
+      switch (week) {
+        case 1:
+        case 2:
+        case 3: rate = 5; break;
+        case 4:
+        case 5: rate = 3; break;
+      }
+
+      var result = document.getElementById("result")
+      result.innerText = price * rate / 100
+    }
+  </script>
+</head>
+
+<body>
+  <h2>Discount Calculation</h2>
+  Price <br />
+  <input type="number" id="txtPrice" />
+  <p></p>
+  Weekday <br />
+  <select id="weekday">
+    <option value="1">Mon</option>
+    <option value="2">Tue</option>
+    <option value="3">Wed</option>
+    <option value="4">Thu</option>
+    <option value="5">Fri</option>
+    <option value="6">Sat</option>
+    <option value="7">Sun</option>
+  </select>
+  <p></p>
+  <button onClick="calculateDiscount()">Calculate</button>
+  <p></p>
+  <h2 style="color:blue" id="result"></h2>
+
+</body>
+
+</html>
