@@ -4,4 +4,4 @@ function isOdd(v) {
 
 let a = [10, 21, 30 , 45]
 
-console.log(a.filter(isOdd)) 
+console.log(a.filter(isOdd))
