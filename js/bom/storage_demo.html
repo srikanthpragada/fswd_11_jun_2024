@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Storage Demo</title>
-  
 </head>
 
 <body>
@@ -16,6 +15,7 @@
     <button onClick="add()">Add</button>
     <button onClick="remove()">Remove</button>
     <button onClick="get()">Get</button>
+    <button onClick="listItems()">List</button>
 
     <script>
         var key = document.getElementById("txtKey")
@@ -28,7 +28,22 @@
             localStorage.removeItem(key.value);
         }
         function get() {
-            alert(localStorage.getItem(key.value));
+            let value = localStorage.getItem(key.value)
+            if(value)
+               alert(value)
+            else
+               alert("Key not found!")
+        }
+
+        function listItems() {
+              let output = ""
+              for(let i = 0; i < localStorage.length; i ++) {
+                 let k  = localStorage.key(i)
+                 let v = localStorage.getItem(k)
+                output += `${k} - ${v}\n`
+              }
+              alert(output)
+
         }
     </script>
 
