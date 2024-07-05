@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+       function greet() {
+            // var name = document.getElementById("txtName").value 
+            // document.getElementById("message").innerHTML = "Hello " + name;
+
+            $("h3").text("Hello " + $("#txtName").val())
+
+            //$("h3").click( () => alert("You Clicked On H3"))
+       }
+    </script>
+</head>
+
+<body>
+    <h2>Greetings</h2>
+    What's your name : <input type="text" id="txtName" />
+    <br />
+    <button onClick="greet()">Greet</button>
+    <br/>
+    <h3></h3>
+</body>
+
+</html>

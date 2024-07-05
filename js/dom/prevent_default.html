@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+    <script>
+       function process(e) {
+           console.log(e)
+           e.preventDefault(); // prevent default action 
+       }
+    </script>
+</head>
+<body>
+   <a onClick="process(event)" href="http://www.google.com">Take me to google!</a>
+</body>
+</html>
