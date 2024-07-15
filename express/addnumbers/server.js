@@ -14,9 +14,9 @@ app.get('/add',
             let total = parseInt(req.query.first) + 
                         parseInt(req.query.second)
             res.render("add", 
-                 { total: total, 
-                   first : req.query.first,
-                   second : req.query.second })
+                 { total: total,   // result
+                   first : req.query.first,  // input
+                   second : req.query.second })  // input
         }
         else {  // first request 
             res.render('add',
