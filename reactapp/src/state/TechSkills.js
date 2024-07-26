@@ -1,24 +1,23 @@
 import React, { useState } from 'react'
 
-
-function AddSkill( {addSkill, skills}) {
+function AddSkill({ addSkill, skills }) {
    var [message, setMessage] = useState("")
-   
+
    function addNewSkill() {
-       setMessage("")
-       var skill = document.getElementById("txtSkill").value 
-       // check whether skill is already present 
-       var found = skills.find( v => v === skill)
-       if(!found)
-             addSkill(skill)  // invoke function in parent component 
-       else
-            setMessage("Duplicate Skill!")
+      setMessage("")
+      var skill = document.getElementById("txtSkill").value
+      // check whether skill is already present 
+      var found = skills.find(v => v === skill)
+      if (!found)
+         addSkill(skill)  // invoke function in parent component 
+      else
+         setMessage("Duplicate Skill!")
    }
 
    return (
       <>
          <h3>Add Skill</h3>
-         Skill <input type="text" id="txtSkill" /> <span>{message}</span>
+         Skill <input type="text" id="txtSkill" required /> <span>{message}</span>
          <p></p>
          <button onClick={addNewSkill}>Add</button>
       </>
@@ -27,10 +26,10 @@ function AddSkill( {addSkill, skills}) {
 }
 
 
-function ListSkills({skills}) {
+function ListSkills({ skills, deleteSkill }) {
 
-   function deleteSkill(idx) {
-
+   function deleteCurrentSkill(idx) {
+        deleteSkill(idx)
    }
    return (
       <>
@@ -38,7 +37,7 @@ function ListSkills({skills}) {
             {
                skills.map((s, idx) =>
                   <li key={idx}>
-                     {s}  <button onClick={() => deleteSkill(idx)}>Del</button>
+                     {s}  <button onClick={() => deleteCurrentSkill(idx)}>Del</button>
                   </li>)
             }
          </ul>
@@ -48,6 +47,7 @@ function ListSkills({skills}) {
 
 export default function TechSkills() {
    var [skills, setSkills] = useState([])
+
    function deleteSkill(idxToDelete) {
       setSkills(skills.filter((v, idx) => idx !== idxToDelete))
    }
@@ -58,8 +58,8 @@ export default function TechSkills() {
    return (
       <>
          <h1>Tech Skills</h1>
-         <AddSkill  addSkill={addNewSkill}  skills={skills}/>
-         <ListSkills skills={skills}/>
+         <AddSkill addSkill={addNewSkill} skills={skills} />
+         <ListSkills skills={skills} deleteSkill={deleteSkill} />
       </>
    )
 }

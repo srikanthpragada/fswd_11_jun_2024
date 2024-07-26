@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import TechSkills from './state/TechSkills';
+import InterestForm from './state/InterestForm';
 
 var products = [
      {name : 'Bose Speakers', price : 30000}, 
@@ -15,6 +15,6 @@ var products = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-       <TechSkills />
+       <InterestForm />
   </React.StrictMode>
 );
