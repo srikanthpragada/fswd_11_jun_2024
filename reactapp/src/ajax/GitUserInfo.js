@@ -7,6 +7,21 @@ function ShowUserRepos({ repos }) {
     return (
         <>
             <h3>Repos</h3>
+            <table className="table table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Created On</th>
+                </tr>
+
+                {
+                    repos.map((repo, idx) =>
+                        <tr>
+                            <td>{repo.name}</td>
+                            <td>{repo.created_at}</td>
+                        </tr>
+                    )
+                }
+            </table>
         </>
     )
 }
@@ -93,8 +108,8 @@ export default function GitUserInfo() {
             <button disabled={userId.length === 0} onClick={getUserRepos}>Get Repos</button>
 
             <p></p>
-            { data.name && <ShowUserInfo data = {data} /> }
-            { repos && repos.length > 0 && <ShowUserRepos  repos= {repos} /> }
-       </>
+            {data.name && <ShowUserInfo data={data} />}
+            {repos && repos.length > 0 && <ShowUserRepos repos={repos} />}
+        </>
     )
 }
