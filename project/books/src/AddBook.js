@@ -8,7 +8,6 @@ export default function AddBook() {
   let navigate = useNavigate()
 
   function addBook(event) {
-
     event.preventDefault()
 
     // make ajax request for post 
@@ -61,7 +60,7 @@ export default function AddBook() {
 
         <div className="form-group">
           <label for="txtPrice">Price</label>
-          <input id="txtPrice" className="form-control"  type="number" value={book.price} onChange={changeValue} name="price" />
+          <input id="txtPrice" className="form-control" min='0' type="number" value={book.price} onChange={changeValue} name="price" />
         </div>
         <p></p>
         <button className="btn btn-primary">Add Book</button>

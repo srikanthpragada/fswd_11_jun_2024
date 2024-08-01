@@ -4,7 +4,7 @@ import {BOOKS_URL} from './constants'
 import { useParams } from "react-router-dom";
 
 export default function ListBooksByAuthor() {
-    let { author } = useParams();
+    let { author } = useParams();  // Route parameter
     const [books, setBooks] = useState([])
  
     useEffect(() => getBooksByAuthor())

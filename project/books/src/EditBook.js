@@ -25,19 +25,20 @@ export default function EditBook() {
     }
 
     function cancelUpdate(e) {
-        e.preventDefault()
+        //e.preventDefault()
         navigate("/list")  // Programmatic Navigation
     }
 
     function updateBook(event) {
-        event.preventDefault()
+        event.preventDefault()  // do not refresh page 
 
-        // make ajax request for post 
+        // make ajax request for PUT
         $.ajax(
             {
                 url:`${BOOKS_URL}/${bookId}`,
                 method: 'put',
-                data: book,
+                data: JSON.stringify(book),   // send JSON to server 
+                contentType: 'application/json; charset=utf-8',
                 success: function () {
                     alert("Book updated successfully!")
                 },
@@ -63,12 +64,13 @@ export default function EditBook() {
                 <p></p>
 
                 Price <br />
-                <input type="number" value={book.price} onChange={changeValue} name="price" />
+                <input type="number" value={book.price} min="0" onChange={changeValue} name="price" />
                 <p></p>
                 <button>Update Book</button>
                 &nbsp;
-                <button onClick={cancelUpdate}>Cancel</button>
             </form>
+            <p></p>
+            <button className='btn btn-link' onClick={cancelUpdate}>Cancel Changes</button>
         </>
     )
 }
