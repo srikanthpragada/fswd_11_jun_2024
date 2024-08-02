@@ -9,14 +9,13 @@ app.use(express.json());  // register JSON middleware
 app.use(cors())           // enable CORS 
 
 // static files config
-
-//app.use(express.static('dist', { index: 'index.html' }))
-
+app.use(express.static('build', { index: 'index.html' }))
 
 app.get('/books', handlers.getBooks) 
 app.get('/books/author', handlers.getBooksByAuthor)
-app.get('/books/:id', handlers.getBookById)
 app.get("/books/search", handlers.searchBooks)
+app.get('/books/:id', handlers.getBookById)
+
 app.get('/authors', handlers.getAuthorsBooksCount)
 
 app.post('/books', handlers.addBook)
